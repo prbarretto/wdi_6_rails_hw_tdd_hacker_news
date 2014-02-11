@@ -18,7 +18,7 @@ group :test do
   gem 'faker'
   gem 'chronic'
   gem 'simplecov', require: false
-  gem 'guard-rspec', require: false
+  gem "factory_girl_rails"
 end
 
 group :development, :test do
