@@ -2,15 +2,20 @@ require 'spec_helper'
 
 feature 'Manage Users' do
 
-	scenario 'A user should be able to sign up' do
-		visit articles_path
-		save_and_open_page
-		click_link 'Sign up'
- 		fill_in 'Email', with: 'bob@example.com'
-		fill_in 'Password', with: 'password'
- 		fill_in 'Password confirmation', with: 'password'
-		click_on 'Sign up'
+	scenario "Create a New User" do
+		visit new_user_registration_path
+		fill_in "Email", with: "bob@example.com"
+		fill_in "Password", with: "password"
+		fill_in "Password confirmation", with: "password"
+		click_button "Sign up"
+		expect(page).to have_content("All Articles")
 	end
 
+	scenario "Signed In a User" do
+		visit new_user_session_path
+		fill_in "Email", with: "bob@example.com"
+		fill_in "Password", with: "password"
+		click_button "Sign in"
+	end
 
 end
