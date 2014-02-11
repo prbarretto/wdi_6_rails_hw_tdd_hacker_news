@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+	describe "associations" do
+		it { have_many :articles }
+	end
+
 end
