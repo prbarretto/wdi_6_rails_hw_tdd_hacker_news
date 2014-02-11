@@ -9,7 +9,6 @@
 <body>
 <div class="alert alert-success"><%= flash[:notice] %></div>
 <div class="alert alert-danger"><%= flash[:alert] %></div>
-<%= yield %>
 
 <h1>Hacker Newz</h1>
 
@@ -21,6 +20,10 @@
 		<% end %>
 	</ul>
 </nav>
+
+<%= yield %>
+
+
 
 
 

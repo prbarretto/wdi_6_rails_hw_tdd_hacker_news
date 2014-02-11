@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
-		@user = User.find(params[:user_id])
 		@article = Article.new
 	end
 
