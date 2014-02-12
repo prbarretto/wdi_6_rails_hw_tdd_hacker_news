@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
  		@comment = Comment.new(comment_params)
 			if @comment.save
  				flash[:notice] = 'New comment created!'
- 				redirect_to action: :new
+ 				redirect_to action: :index
  			else
  				render :new
  			end
