@@ -2,8 +2,7 @@
 
 <% @articles.each do |article| %>
 	<h2><%= link_to article.description, "#{article.link}" %></h2>
-
-
+	<h4><%= link_to "Comments", article_comments_path(article.id) %></h4>
 <% end %>
 
 <%= link_to "Create an Article", new_article_path %>
