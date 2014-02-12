@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Comments do
+describe Comment do
 
 end
