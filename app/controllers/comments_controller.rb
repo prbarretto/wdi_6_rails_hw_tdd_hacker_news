@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 	def index
-		@comments = Comment.all
+		@comments = Comment.where(article_id: params[:article_id])
 	end
 
 	def new
@@ -9,9 +9,11 @@ class CommentsController < ApplicationController
 	end
 
 	def create
+		@article = Article.find(params[:article_id])
  		@comment = Comment.new(comment_params)
 			if @comment.save
  				flash[:notice] = 'New comment created!'
+ 				@article.comments << @comment
  				redirect_to action: :index
  			else
  				render :new
