@@ -5,8 +5,7 @@ class VotesController < ApplicationController
 
 	def up_vote
 		@vote = @votable.votes.new(vote: true)
-		@article = Article.find(params[:article_id])
-		if vote.save
+		if @vote.save
 			flash[:notice] = "You voted this Up!"
 			redirect_to root_path
 		else
@@ -16,9 +15,8 @@ class VotesController < ApplicationController
 	end
 
 	def down_vote
-		@vote = @votable.votes.new(vote: true)
-		@article = Article.find(params[:article_id])
-		if vote.save
+		@vote = @votable.votes.new(vote: false)
+		if @vote.save
 			flash[:notice] = "You voted this Down!"
 			redirect_to root_path
 		else
@@ -29,7 +27,8 @@ class VotesController < ApplicationController
 	private
 
 	def set_votable
-    @votable = params[:votable].classify.constantize.find(votable_id)
+		# Artice.find(article_id)
+    @votable = params[:votable].classify.constantize.find(params[:article_id])
   end
 
   def commentable_id
