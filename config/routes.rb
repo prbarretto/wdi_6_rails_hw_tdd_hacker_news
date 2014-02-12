@@ -5,9 +5,7 @@ HackerNews::Application.routes.draw do
 
   resources :articles do
   	resources :votes, defaults: {votable: 'article'}
-  	resources :comments do
-  		resources :votes, defaults: {votable: 'comment'}
-  	end
+  	resources :comments
   end
 
 
