@@ -9,7 +9,6 @@ class VotesController < ApplicationController
 			flash[:notice] = "You voted this Up!"
 			redirect_to root_path
 		else
-			flash[:notice] = "You can't vote more than once."
 			redirect_to root_path
 		end
 	end
@@ -20,7 +19,6 @@ class VotesController < ApplicationController
 			flash[:notice] = "You voted this Down!"
 			redirect_to root_path
 		else
-			flash[:notice] = "You can't vote more than once."
 			redirect_to root_path
 		end
 	end
