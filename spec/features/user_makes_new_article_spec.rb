@@ -11,6 +11,5 @@ feature 'User can create a new article' do
 		click_button 'Create Article'
 
 		expect(page).to have_content 'article created'
-
 	end
 end

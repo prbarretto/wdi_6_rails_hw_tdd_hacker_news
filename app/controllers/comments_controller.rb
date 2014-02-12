@@ -11,10 +11,11 @@ class CommentsController < ApplicationController
 	def create
 		@article = Article.find(params[:article_id])
  		@comment = Comment.new(comment_params)
+ 		@comment.assign_attributes(user: current_user)
 			if @comment.save
  				flash[:notice] = 'New comment created!'
  				@article.comments << @comment
- 				redirect_to action: :index
+ 				redirect_to [@article, :comments]
  			else
  				render :new
  			end

@@ -8,4 +8,12 @@ FactoryGirl.define do
 		description { Faker::Lorem.words.join }
 		link { Faker::Internet.url }
 	end
+
+	factory :up_vote, class: Vote do
+		vote true
+	end
+
+	factory :down_vote, class: Vote do
+		vote false
+	end
 end

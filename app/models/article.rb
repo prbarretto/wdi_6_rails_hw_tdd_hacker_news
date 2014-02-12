@@ -5,4 +5,10 @@ class Article < ActiveRecord::Base
 
   validates :description, presence: true
   validates :link, presence: true
+
+  def vote_tally
+  	up_votes = votes.where(vote: true).count
+  	down_votes = votes.where(vote: false).count
+  	up_votes - down_votes
+  end
 end
