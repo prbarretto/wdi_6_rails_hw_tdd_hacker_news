@@ -22,14 +22,14 @@ class VotesController < ApplicationController
 			redirect_to root_path
 		end
 	end
+
 	private
 
 	def set_votable
-		# Artice.find(article_id)
-    @votable = params[:votable].classify.constantize.find(params[:article_id])
+    @votable = params[:votable].classify.constantize.find(votable_id)
   end
 
-  def commentable_id
+  def votable_id
     params[(params[:votable] + "_id").to_sym]
   end
 end

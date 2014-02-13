@@ -2,6 +2,10 @@
 
 <% @comments.each do |comment| %>
 	<h4><%= "#{comment.body}" %></h4>
+	<h4>Votes</h4>
+	<p>Total Number of Votes: <%= comment.vote_tally %>
+	<p><%= button_to "Up Vote", article_comment_up_vote_path(@article, comment) %></p>
+	<p><%= button_to "Down Vote", article_comment_down_vote_path(@article, comment) %></p>
 <% end %>
 
-<%= link_to "Create a Comment", new_article_comment_path %>
+<%= link_to "Create another Comment", new_article_comment_path %>
