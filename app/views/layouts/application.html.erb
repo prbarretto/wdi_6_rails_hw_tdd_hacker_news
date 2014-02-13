@@ -7,19 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="alert alert-success"><%= flash[:notice] %></div>
-<div class="alert alert-danger"><%= flash[:alert] %></div>
+
+
+<nav>
+		<% if user_signed_in? %>
+			<p>Signed in as <%= current_user.email %></p>
+			<p><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></p>
+		<% end %>
+</nav>
 
 <h1>Hacker Newz</h1>
 
-<nav>
-	<ul>
-		<% if user_signed_in? %>
-			<li>Signed in as <%= current_user.email %></li>
-			<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-		<% end %>
-	</ul>
-</nav>
+<div class="alert alert-success"><%= flash[:notice] %></div>
+<div class="alert alert-danger"><%= flash[:alert] %></div>
+
 
 <%= yield %>
 

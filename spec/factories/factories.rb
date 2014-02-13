@@ -9,6 +9,10 @@ FactoryGirl.define do
 		link { Faker::Internet.url }
 	end
 
+	factory :comment do
+		body { Faker::Lorem.sentence }
+	end
+
 	factory :up_vote, class: Vote do
 		vote true
 	end

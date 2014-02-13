@@ -1,7 +1,7 @@
-<h1>All Articles</h1>
+<h2>All Articles</h2>
 
 <% @articles.each do |article| %>
-	<h2><%= link_to article.description, "#{article.link}" %></h2>
+	<h3><%= link_to article.description, "#{article.link}" %></h3>
 	<h4><%= link_to "Comments", article_comments_path(article.id) %></h4>
 	<h4>Votes</h4>
 	<p>Total Number of Votes: <%= article.vote_tally %>
@@ -10,4 +10,4 @@
 
 <% end %>
 
-<%# = link_to "Create an Article", new_article_path %>
+<h3><%= link_to "Create an Article", new_article_path %></h3>

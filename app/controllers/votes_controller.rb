@@ -5,22 +5,14 @@ class VotesController < ApplicationController
 
 	def up_vote
 		@vote = @votable.votes.new(vote: true)
-		if @vote.save
-			flash[:notice] = "You voted this Up!"
-			redirect_to root_path
-		else
-			redirect_to root_path
-		end
+		@vote.save
+		redirect_to root_path
 	end
 
 	def down_vote
 		@vote = @votable.votes.new(vote: false)
-		if @vote.save
-			flash[:notice] = "You voted this Down!"
-			redirect_to root_path
-		else
-			redirect_to root_path
-		end
+		@vote.save
+		redirect_to root_path
 	end
 
 	private
