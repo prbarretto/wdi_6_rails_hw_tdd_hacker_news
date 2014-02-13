@@ -16,7 +16,7 @@ feature 'User can vote on a comment' do
 		click_button 'Create Comment'
 		click_button 'Up Vote'
 
-		current_path.should == "/"
+		expect(page).to have_content 'Comments'
 	end
 
 end

@@ -4,15 +4,17 @@ class VotesController < ApplicationController
 
 
 	def up_vote
-		@vote = @votable.votes.new(vote: true)
+		@vote = @votable.votes.find_or_create_by(:user_id => current_user.id)
+		@vote.vote = true
 		@vote.save
-		redirect_to root_path
+		redirect_to :back
 	end
 
 	def down_vote
-		@vote = @votable.votes.new(vote: false)
+		@vote = @votable.votes.find_or_create_by(:user_id => current_user.id)
+		@vote.vote = false
 		@vote.save
-		redirect_to root_path
+		redirect_to :back
 	end
 
 	private

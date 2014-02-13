@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
+
 	def index
 		@article = Article.find(params[:article_id])
 		@comments = Comment.where(article_id: params[:article_id])
+		@comments.sort! { |x, y| y.vote_tally <=> x.vote_tally }
 	end
 
 	def new
