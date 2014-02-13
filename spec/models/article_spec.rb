@@ -6,7 +6,7 @@ describe Article do
  		it { belong_to :user }
  	end
 
- 	it "is a valid post" do
+ 	it "is a valid article" do
  		expect(Article.create(description: "Amazing new article", link: "http://www.amaze.com")).to be_valid
  	end
 
@@ -23,6 +23,12 @@ describe Article do
  			@article = create(:article)
  			@article.votes << create(:up_vote)
  			expect(@article.vote_tally).to eq 1
+ 		end
+
+ 		it 'returns -1 when there is one Down Vote' do
+ 			@article = create(:article)
+ 			@article.votes << create(:down_vote)
+ 			expect(@article.vote_tally).to eq -1
  		end
  	end
 end
