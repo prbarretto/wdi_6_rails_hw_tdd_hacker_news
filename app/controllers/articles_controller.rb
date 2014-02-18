@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
+	before_filter :authenticate_user!, :except => [:index]
+
 	def index
 		@articles = Article.all
+		# includes(:user)
 		@articles.sort! { |x, y| y.vote_tally <=> x.vote_tally }
 	end
 

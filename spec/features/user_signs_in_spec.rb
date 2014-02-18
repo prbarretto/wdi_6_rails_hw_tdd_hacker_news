@@ -1,6 +1,6 @@
 require 'spec_helper'
 
- 	feature 'Visitor signs in' do
+ 	feature 'User signs in' do
 
 	background do
 		@user = create(:user)
@@ -8,7 +8,7 @@ require 'spec_helper'
 	end
 
 	scenario 'successfully' do
-
+		click_link 'Sign in'
 		fill_in 'Email', with: @user.email
 		fill_in 'Password', with: @user.password
 		click_button 'Sign in'
@@ -18,6 +18,7 @@ require 'spec_helper'
 	end
 
 	scenario 'unsuccessfully  with invalid credentials' do
+		click_link 'Sign in'
 		fill_in 'Email', with: @user.email
 		fill_in 'Password', with: 'wrongpassword'
 		click_button 'Sign in'
