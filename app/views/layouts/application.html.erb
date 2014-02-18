@@ -14,15 +14,15 @@
 			<p>Signed in as <%= current_user.email %></p>
 			<p><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></p>
 		<% else %>
-			<p><%= link_to 'Sign in', new_user_session_path %></p>
+			<p><%= link_to 'Sign in', new_user_session_path %></p> |
 			<p><%= link_to 'Sign up', new_user_registration_path %></p>
 		<% end %>
 </nav>
 
 <h1>Hacker Newz</h1>
 
-<div class="alert alert-success"><%= flash[:notice] %></div>
-<div class="alert alert-danger"><%= flash[:alert] %></div>
+<div><%= flash[:notice] %></div>
+<div><%= flash[:alert] %></div>
 
 
 <%= yield %>
