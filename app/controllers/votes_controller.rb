@@ -3,16 +3,9 @@ class VotesController < ApplicationController
 
 	before_filter :authenticate_user!
 
-	def up_vote
+	def up_vote_or_down_vote
 		@vote = @votable.votes.find_or_create_by(:user_id => current_user.id)
-		@vote.vote = true
-		@vote.save
-		redirect_to :back
-	end
-
-	def down_vote
-		@vote = @votable.votes.find_or_create_by(:user_id => current_user.id)
-		@vote.vote = false
+		@vote.vote = true || false
 		@vote.save
 		redirect_to :back
 	end
