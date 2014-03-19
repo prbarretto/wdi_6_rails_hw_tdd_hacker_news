@@ -6,9 +6,5 @@ class Comment < ActiveRecord::Base
 
   validates :body, presence: true
 
-   def vote_tally
-  	up_votes = votes.where(vote: true).count
-  	down_votes = votes.where(vote: false).count
-  	up_votes - down_votes
-  end
+
 end
